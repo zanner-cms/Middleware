@@ -35,8 +35,8 @@ class Middleware {
 			this._action = action;
 			return this;
 		}
-		if (false && action instanceof Function) {
-			this._action = action;
+		if (action instanceof Function) {
+			this._action = async function (...args) { return action(...args); };
 			return this;
 		}
 		throw new Error('Middleware.action set with wrong type');
@@ -44,8 +44,8 @@ class Middleware {
 
 	set dependencies (dependencies) {
 		this._dependencies = [].concat(dependencies).map(dependency => {
-			if (String(dependency)!==dependency) throw new Error('Middleware.name set with wrong type');
-			if (dependency.trim().length<1) throw new Error('Middleware.name set with wrong length');
+			if (String(dependency)!==dependency) throw new Error('Middleware.dependencies set with wrong type');
+			if (dependency.trim().length<1) throw new Error('Middleware.dependencies set with wrong length');
 			return dependency;
 		});
 		return this;
