@@ -1,7 +1,7 @@
 {
   "name": "zanner-cms-middleware",
-  "version": "0.0.3",
-  "description": "",
+  "version": "0.0.4",
+  "description": "Middleware class for CMS",
   "main": "index.js",
   "directories": {
     "test": "test"
